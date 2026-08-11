@@ -1,15 +1,24 @@
-CARTA DE ANIVERSARIO — WEB
+WEB DE ANIVERSARIO — CARLA
 
 Archivo principal:
-- index.html
+  index.html
 
-Cómo usar:
-1. Abrí index.html en Chrome/Firefox para verla.
-2. Para publicarla gratis podés subir esta carpeta a GitHub Pages, Netlify o Cloudflare Pages.
-3. La versión actual contiene la carta como texto con estilo manuscrito.
-4. Cuando tengas la carta realmente escrita a mano en tu tablet, podemos reemplazar el bloque de texto
-   por una imagen PNG/JPG o por páginas exportadas, manteniendo la portada y el cierre de Crisálida.
+Cómo verla:
+  Abrí index.html en cualquier navegador.
 
-Enlace final:
-Museo a Cielo Abierto — catálogo filtrado por Ebru Akinci
-https://museoacieloabierto.org/es/catalogo?sculptors=96
+Cómo publicarla en GitHub Pages:
+  1. Creá un repositorio, por ejemplo "crisalida".
+  2. Subí index.html a la raíz.
+  3. Settings > Pages > Deploy from a branch.
+  4. Seleccioná main / (root).
+
+Enlaces incluidos:
+  Crisálida — Museo a Cielo Abierto
+  https://museoacieloabierto.org/es/catalogo?sculptors=96
+
+  Dualidad en movimiento — Bienal del Chaco 2026
+  https://bienaldelchaco.org/2026/bienal-de-escultura/esc-jose-c-cabello-millan/
+
+Más adelante:
+  Se puede reemplazar la carta de texto por imágenes PNG/JPG exportadas desde
+  la tablet con la escritura manuscrita real, manteniendo el resto del diseño.

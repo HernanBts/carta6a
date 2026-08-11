@@ -2,237 +2,361 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#171412">
-  <title>Para vos</title>
-  <meta name="description" content="Una carta para vos.">
+  <title>Para mi Osita</title>
+  <meta name="description" content="Una carta para Carla.">
   <style>
     :root{
-      --bg:#171412;
-      --paper:#f5efe4;
-      --ink:#2a2522;
-      --muted:#8e8178;
-      --accent:#b66c62;
-      --line:rgba(42,37,34,.12);
+      --bg:#161311;
+      --paper:#f4eee3;
+      --ink:#2b2521;
+      --soft:#cdbfb5;
+      --muted:#9d8f86;
+      --rose:#b86f67;
+      --sand:#d2ad82;
+      --line:rgba(43,37,33,.10);
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       background:
-        radial-gradient(circle at 20% 0%, rgba(182,108,98,.12), transparent 30rem),
+        radial-gradient(circle at 12% 0%, rgba(184,111,103,.12), transparent 30rem),
+        radial-gradient(circle at 90% 35%, rgba(210,173,130,.08), transparent 28rem),
         var(--bg);
       color:#f7f1e9;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       min-height:100vh;
     }
-    button,a{font:inherit}
+
+    a,button{font:inherit}
+
     .hero{
       min-height:100svh;
+      padding:34px 20px;
       display:grid;
       place-items:center;
-      padding:32px 20px;
       text-align:center;
       position:relative;
       overflow:hidden;
     }
-    .hero:before,.hero:after{
+
+    .hero::before,
+    .hero::after{
       content:"";
       position:absolute;
-      border:1px solid rgba(255,255,255,.07);
-      border-radius:999px;
-      width:420px;height:420px;
-      transform:rotate(18deg);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:50%;
+      width:430px;
+      height:430px;
     }
-    .hero:before{top:-210px;right:-180px}
-    .hero:after{bottom:-250px;left:-210px}
-    .intro{
-      max-width:620px;
+
+    .hero::before{top:-230px;right:-180px}
+    .hero::after{bottom:-260px;left:-220px}
+
+    .hero-inner{
       position:relative;
       z-index:1;
-      animation:fadeUp 1s ease both;
+      max-width:640px;
+      animation:fadeUp .9s ease both;
     }
+
     .eyebrow{
-      letter-spacing:.22em;
-      text-transform:uppercase;
+      margin-bottom:18px;
+      color:#c9bbb1;
       font-size:.72rem;
-      color:#c7b9ae;
-      margin-bottom:20px;
+      text-transform:uppercase;
+      letter-spacing:.23em;
     }
-    h1{
-      margin:0;
-      font-family: Georgia, "Times New Roman", serif;
+
+    h1,h2,h3{
+      font-family:Georgia,"Times New Roman",serif;
       font-weight:400;
-      font-size:clamp(3rem,12vw,6rem);
+    }
+
+    h1{
+      font-size:clamp(3.1rem,12vw,6.6rem);
       line-height:.95;
+      margin:0;
     }
-    .intro p{
-      color:#cfc5bd;
-      line-height:1.75;
-      max-width:430px;
+
+    .hero p{
+      max-width:480px;
       margin:24px auto 30px;
+      color:#cfc4bc;
+      line-height:1.75;
     }
-    .open-btn,.link-btn{
+
+    .btn{
       border:0;
       border-radius:999px;
-      padding:14px 22px;
-      cursor:pointer;
+      padding:14px 23px;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
+      gap:9px;
+      cursor:pointer;
       transition:.25s ease;
     }
-    .open-btn{
-      background:#f4ede3;
+
+    .btn.primary{
+      background:#f3ece3;
       color:#241f1c;
-      box-shadow:0 12px 40px rgba(0,0,0,.18);
+      box-shadow:0 14px 44px rgba(0,0,0,.18);
     }
-    .open-btn:hover{transform:translateY(-2px)}
-    .arrow{display:inline-block;transition:.25s ease}
-    .open-btn:hover .arrow{transform:translateX(3px)}
-    main{
-      display:none;
-      opacity:0;
+
+    .btn.secondary{
+      background:transparent;
+      color:#f3ebe5;
+      border:1px solid rgba(255,255,255,.18);
     }
-    body.open main{
-      display:block;
-      animation:fadeIn .7s ease forwards;
-    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    main{display:none;opacity:0}
+    body.open main{display:block;animation:fadeIn .6s ease forwards}
     body.open .hero{
       min-height:34svh;
-      padding-top:60px;
+      padding-top:64px;
       padding-bottom:36px;
     }
-    body.open .hero .intro p,
-    body.open .hero .open-btn,
-    body.open .hero .eyebrow{display:none}
-    body.open .hero h1{font-size:clamp(2.5rem,9vw,4.5rem)}
-    .letter-wrap{
-      padding:0 16px 72px;
-    }
+    body.open .hero .eyebrow,
+    body.open .hero p,
+    body.open .hero .btn{display:none}
+    body.open h1{font-size:clamp(2.6rem,9vw,4.6rem)}
+
+    .letter-wrap{padding:0 14px 78px}
+
     .paper{
-      max-width:760px;
+      max-width:790px;
       margin:0 auto;
-      color:var(--ink);
-      background:
-        linear-gradient(90deg, transparent 0 49px, rgba(190,105,105,.14) 50px, transparent 51px),
-        repeating-linear-gradient(0deg, transparent 0 30px, rgba(86,77,72,.07) 31px, transparent 32px),
-        var(--paper);
-      border-radius:3px;
-      padding:clamp(34px,7vw,72px);
-      box-shadow:0 26px 80px rgba(0,0,0,.28);
       position:relative;
       overflow:hidden;
+      color:var(--ink);
+      background:
+        linear-gradient(90deg, transparent 0 52px, rgba(184,111,103,.12) 53px, transparent 54px),
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(55,49,45,.055) 32px, transparent 33px),
+        var(--paper);
+      border-radius:4px;
+      padding:clamp(36px,7vw,76px);
+      box-shadow:0 28px 90px rgba(0,0,0,.30);
     }
-    .paper:after{
+
+    .paper::after{
       content:"";
       position:absolute;
       inset:0;
       pointer-events:none;
-      opacity:.22;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.1'/%3E%3C/svg%3E");
+      opacity:.18;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.11'/%3E%3C/svg%3E");
       mix-blend-mode:multiply;
     }
+
     .date{
       text-align:right;
-      color:var(--muted);
+      color:#8c7f76;
       font-size:.9rem;
-      margin-bottom:28px;
-    }
-    .hand{
-      font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;
-      font-size:clamp(1.03rem,3.8vw,1.28rem);
-      line-height:1.95;
-      letter-spacing:.01em;
+      margin-bottom:30px;
       position:relative;
       z-index:1;
     }
-    .hand p{margin:0 0 1.35em}
+
+    .hand{
+      font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;
+      font-size:clamp(1.04rem,3.7vw,1.28rem);
+      line-height:1.95;
+      position:relative;
+      z-index:1;
+    }
+
+    .hand p{margin:0 0 1.28em}
     .hand strong{font-weight:700}
+
+    .break{
+      display:block;
+      width:56px;
+      height:1px;
+      background:rgba(43,37,33,.25);
+      margin:34px auto;
+      transform:rotate(-2deg);
+    }
+
     .signature{
       margin-top:42px;
       font-size:1.35em;
-      transform:rotate(-2deg);
       display:inline-block;
+      transform:rotate(-2deg);
     }
-    .note{
-      max-width:760px;
-      margin:18px auto 0;
-      color:#9c9087;
-      font-size:.82rem;
-      line-height:1.6;
-      text-align:center;
-    }
-    .crisalida{
-      max-width:760px;
+
+    .art-section{
+      max-width:930px;
       margin:0 auto;
-      padding:70px 22px 110px;
-      text-align:center;
+      padding:78px 22px 96px;
     }
-    .mark{
-      width:96px;height:96px;
-      margin:0 auto 28px;
+
+    .art-card{
+      display:grid;
+      grid-template-columns:170px 1fr;
+      gap:34px;
+      align-items:center;
+      padding:28px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:24px;
+      background:rgba(255,255,255,.025);
+      backdrop-filter:blur(8px);
+      margin-bottom:26px;
+    }
+
+    .art-card.right{
+      grid-template-columns:1fr 170px;
+    }
+
+    .art-card.right .art-text{order:1}
+    .art-card.right .sculpture{order:2}
+
+    .sculpture{
+      width:150px;
+      height:150px;
+      margin:auto;
       position:relative;
-      border:1px solid rgba(255,255,255,.16);
-      transform:rotate(45deg);
+      border:1px solid rgba(255,255,255,.14);
       overflow:hidden;
+      background:rgba(255,255,255,.015);
     }
-    .mark:after{
+
+    .sculpture.crisalida{
+      transform:rotate(45deg);
+      border-radius:10px;
+    }
+
+    .sculpture.crisalida::before{
       content:"";
       position:absolute;
-      width:90px;height:140px;
-      background:rgba(182,108,98,.65);
-      border-radius:70% 25% 55% 35%;
-      left:30px; top:12px;
-      transform:rotate(-34deg);
-      filter:blur(.2px);
+      width:115px;
+      height:180px;
+      left:50px;
+      top:5px;
+      border-radius:70% 20% 65% 30%;
+      background:linear-gradient(180deg,rgba(184,111,103,.90),rgba(210,173,130,.68));
+      transform:rotate(-35deg);
     }
-    .crisalida h2{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:clamp(2.4rem,9vw,4.8rem);
-      font-weight:400;
-      margin:0 0 12px;
+
+    .sculpture.dualidad{
+      border:0;
+      background:transparent;
     }
-    .meta{color:#a99d95;margin-bottom:32px}
-    .quote{
+
+    .sculpture.dualidad::before,
+    .sculpture.dualidad::after{
+      content:"";
+      position:absolute;
+      width:44px;
+      height:125px;
+      left:53px;
+      top:12px;
+      background:linear-gradient(180deg,rgba(220,209,197,.90),rgba(150,137,128,.62));
+      border-radius:22px 7px 22px 7px;
+      transform-origin:center;
+    }
+
+    .sculpture.dualidad::before{transform:rotate(28deg) translateX(-17px)}
+    .sculpture.dualidad::after{transform:rotate(-28deg) translateX(17px)}
+
+    .art-text .eyebrow{margin-bottom:10px}
+    .art-text h2{
+      margin:0 0 9px;
+      font-size:clamp(2.2rem,7vw,4rem);
+    }
+
+    .meta{
+      color:#a99d95;
+      margin-bottom:18px;
+      font-size:.92rem;
+    }
+
+    .art-text p{
+      color:#d3c8c0;
+      line-height:1.78;
+      margin:0 0 20px;
+    }
+
+    .reveal{
+      max-width:760px;
+      margin:0 auto;
+      padding:18px 22px 90px;
+      text-align:center;
+    }
+
+    .reveal p{
       font-family:Georgia,"Times New Roman",serif;
-      font-size:clamp(1.2rem,4.8vw,1.65rem);
+      font-size:clamp(1.35rem,5vw,2rem);
       line-height:1.55;
-      color:#eee5de;
-      margin:28px auto 38px;
-      max-width:600px;
+      color:#eee5dd;
+      margin:0 auto 28px;
+      max-width:650px;
     }
-    .link-btn{
-      color:#1c1816;
-      background:#f5efe7;
+
+    .final-line{
+      margin-top:38px !important;
+      font-size:clamp(1.65rem,6vw,2.5rem) !important;
     }
-    .link-btn:hover{transform:translateY(-2px)}
+
+    .sources{
+      max-width:760px;
+      margin:0 auto;
+      padding:0 22px 70px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+    }
+
+    .note{
+      max-width:760px;
+      margin:20px auto 0;
+      text-align:center;
+      color:#857970;
+      font-size:.82rem;
+      line-height:1.6;
+    }
+
     footer{
       text-align:center;
-      padding:0 20px 42px;
-      color:#746a64;
+      color:#6f665f;
       font-size:.8rem;
+      padding:0 20px 42px;
     }
+
+    @media(max-width:680px){
+      .art-card,
+      .art-card.right{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+      .art-card.right .art-text,
+      .art-card.right .sculpture{order:initial}
+      .paper{padding:42px 28px 48px}
+      .letter-wrap{padding-left:10px;padding-right:10px}
+    }
+
     @keyframes fadeUp{
       from{opacity:0;transform:translateY(18px)}
       to{opacity:1;transform:translateY(0)}
     }
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @media (max-width:520px){
-      .paper{padding:40px 29px 46px}
-      .letter-wrap{padding-left:11px;padding-right:11px}
-    }
   </style>
 </head>
+
 <body>
-  <section class="hero" id="inicio">
-    <div class="intro">
-      <div class="eyebrow">Una carta para vos</div>
-      <h1>Para vos.</h1>
-      <p>Hay cosas que prefiero escribir despacio, aunque el lugar donde las escriba tenga un poco de mí.</p>
-      <button class="open-btn" id="abrir">Abrir carta <span class="arrow">→</span></button>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Una carta para Carla</div>
+      <h1>Para mi Osita.</h1>
+      <p>Hay cosas que no quería mandar simplemente en un mensaje. Quería escribirlas de una forma que tuviera un poco de vos, un poco de mí y un poco de todo lo que fuimos construyendo.</p>
+      <button class="btn primary" id="abrir">Abrir carta <span>→</span></button>
     </div>
   </section>
 
@@ -240,76 +364,125 @@
     <section class="letter-wrap">
       <article class="paper">
         <div class="date">Nuestro aniversario</div>
+
         <div class="hand">
+          <p>Osita,</p>
+
           <p>Hay algo en vos que siempre me llamó la atención: cómo pueden convivir tanta fuerza y tanta sensibilidad en una misma persona.</p>
 
-          <p>Tenés una forma muy tuya de ir por la vida. Sos sociable, conectás con la gente, muchas veces terminás ocupando naturalmente ese lugar de líder y, cuando realmente te proponés algo, es difícil imaginar que no vayas a conseguirlo. Te vi perseguir objetivos, cambiar de rumbo cuando hizo falta, aprender cosas nuevas y volver a intentarlo cuando algo no salió como esperabas.</p>
+          <p>Tenés una forma muy tuya de ir por la vida. Sos sociable, conectás con la gente y muchas veces terminás ocupando naturalmente ese lugar de líder. Y cuando realmente te proponés algo, siempre encontrás la manera de avanzar. Te vi perseguir objetivos, aprender cosas nuevas, cambiar cuando hizo falta y volver a intentarlo cuando algo no salió como esperabas.</p>
 
-          <p>Pero también conozco la otra parte de vos. Esa que quizás no todos llegan a ver de la misma manera.</p>
+          <p>Pero también conozco esa otra parte tuya que quizás no todos llegan a ver igual.</p>
 
-          <p>La que siente muchísimo. La que se emociona, se preocupa, piensa las cosas una y otra vez y puede encontrar significado donde otros quizás no ven nada. Esa sensibilidad que a veces puede hacer que las cosas duelan más, pero que también es parte de lo que te permite entender a los demás, crear y expresarte como lo hacés.</p>
+          <p>La que siente muchísimo. La que se emociona, piensa, observa, interpreta y puede encontrar significado donde otros quizás pasan de largo. Esa sensibilidad que a veces hace que las cosas te duelan más, pero que también es parte de lo que te permite comprender a los demás, crear y expresarte de una manera tan tuya.</p>
 
           <p>Y creo que justamente por esa mezcla pensé en <strong>Crisálida</strong>.</p>
 
-          <p>La artista que la creó habla de una estructura exterior firme que comienza a transformarse por algo que nace desde su interior. De esa forma rígida empieza a surgir otra más orgánica, suave y sensible. Para ella, la obra habla de transformación, de renacimiento y de cómo la vida nunca deja de cambiar.</p>
+          <p>La obra parte de una estructura exterior firme que empieza a transformarse por algo que nace desde su interior. De esa forma rígida surge otra más orgánica, suave y sensible. Habla de transformación, de cambio, de renacimiento y de una vida que nunca permanece completamente quieta.</p>
 
-          <p>Cuando conocí su significado, inevitablemente pensé en vos.</p>
+          <p>Cuando entendí lo que quería transmitir, inevitablemente pensé en vos.</p>
 
-          <p>No porque crea que haya una versión vieja y una nueva de vos, ni porque tengas que convertirte en algo diferente. Sino porque siento que estás constantemente transformándote sin dejar de ser vos misma.</p>
+          <p>No porque crea que haya una versión vieja y una nueva de Carla, ni porque tengas que convertirte en alguien diferente. Al contrario. Me hizo pensar en esa capacidad que tenés de transformarte sin dejar de ser vos.</p>
 
-          <p>Porque detrás de esa persona fuerte y decidida siempre estuvo también esa parte sensible. Y detrás de esa sensibilidad hay mucha más fuerza de la que a veces vos misma reconocés.</p>
+          <p>Porque detrás de tu fuerza siempre estuvo tu sensibilidad. Y detrás de tu sensibilidad hay mucha más fuerza de la que a veces vos misma reconocés.</p>
 
-          <p>Quizás por eso también me gusta tanto que hagas cerámica. Hay algo muy tuyo en tomar algo, trabajarlo con las manos, tener paciencia, equivocarte, volver a darle forma y terminar creando algo que antes no existía.</p>
+          <p>Quizás por eso también me gusta verte hacer cerámica. Hay algo lindo en tomar una materia, trabajarla con las manos, tener paciencia, equivocarse, volver a darle forma y terminar creando algo que antes no existía.</p>
 
-          <p>Y supongo que nosotros tampoco somos los mismos que cuando empezamos.</p>
+          <span class="break"></span>
 
-          <p>En todo este tiempo cambiamos muchísimo. Tuvimos momentos hermosos y otros que seguramente nos hubiera gustado hacer de otra manera. Aprendimos del otro, discutimos, nos equivocamos, crecimos y fuimos descubriendo versiones nuevas de nosotros mismos.</p>
+          <p>Pero mientras buscaba una obra que pudiera representarte, terminé encontrando otra.</p>
+
+          <p>Y esta vez no pensé solamente en vos.</p>
+
+          <p><strong>Pensé en nosotros.</strong></p>
+
+          <p>Se llama <strong>Dualidad en movimiento</strong>.</p>
+
+          <p>Son formas que apuntan en direcciones distintas. Parecen separarse y, al mismo tiempo, permanecer unidas. Se enfrentan, se complementan y encuentran un equilibrio justamente en esa tensión. No avanzan siguiendo una única línea: avanzan entre contrastes.</p>
+
+          <p>Y ahí también nos encontré un poco.</p>
+
+          <p>Vos con tu sensibilidad, tu arte, tu forma de sentir, de leer a las personas y de mirar el mundo.</p>
+
+          <p>Yo con mi manera más lógica, tecnológica, estructurada y seguramente demasiado metódica de entender muchas cosas.</p>
+
+          <p>No somos dos personas iguales mirando todo de la misma manera. Y creo que eso también forma parte de lo que somos.</p>
+
+          <p>En todo este tiempo cambiamos muchísimo. Tuvimos momentos hermosos y otros que seguramente hubiéramos querido vivir de otra forma. Nos equivocamos, discutimos, aprendimos, crecimos y fuimos descubriendo nuevas versiones del otro y de nosotros mismos.</p>
 
           <p>Pero hay algo lindo en pensar que cambiar no significa necesariamente alejarse.</p>
 
           <p><strong>A veces significa aprender a encontrarse de nuevo.</strong></p>
 
-          <p>Por eso elegí Crisálida para vos. Porque no quería regalarte solamente una escultura o contarte la historia de una obra. Quería elegir algo que, cada vez que lo vieras, pudiera recordarte cómo te veo yo: fuerte sin dejar de ser sensible, capaz de transformarte sin perder quién sos, y siempre encontrando la manera de seguir creciendo.</p>
+          <p>Creo que de eso hablan para mí estas dos obras.</p>
 
-          <p>Y también porque después de todo lo que nosotros mismos fuimos transformando en el camino, hay algo que todavía quiero seguir haciendo:</p>
+          <p><strong>Crisálida</strong> me hizo pensar en vos: en tu fuerza, tu sensibilidad y tu capacidad de transformarte sin perder quién sos.</p>
+
+          <p><strong>Dualidad en movimiento</strong> me hizo pensar en nosotros: dos formas distintas, con maneras diferentes de sentir y entender el mundo, que no necesitan convertirse una en la otra para poder seguir juntas.</p>
+
+          <p>Quizás amar también tenga algo de eso.</p>
+
+          <p>No dejar de ser uno mismo para estar con el otro, sino aprender a construir algo en ese espacio que existe entre los dos.</p>
+
+          <p>Y después de todo lo que fuimos cambiando, todavía hay algo que quiero seguir haciendo:</p>
 
           <p><strong>seguir creciendo, cambiando y descubriendo la vida con vos.</strong></p>
 
-          <p>Feliz aniversario, mi amor.</p>
+          <p>Feliz aniversario, Osita.</p>
 
           <div class="signature">Te amo. ❤️</div>
         </div>
       </article>
 
-      <p class="note">
-        Cuando tengas tu carta escrita a mano en la tablet, esta hoja puede reemplazarse por una imagen o PDF exportado desde tu app de notas, manteniendo el resto de la experiencia igual.
-      </p>
+      <p class="note">Esta es la versión de vista previa. Después podés reemplazar la hoja por la carta escrita realmente con tu lápiz en la tablet.</p>
     </section>
 
-    <section class="crisalida">
-      <div class="mark" aria-hidden="true"></div>
-      <div class="eyebrow">La obra que elegí para vos</div>
-      <h2>Crisálida</h2>
-      <div class="meta">Ebru Akinci · Bienal Internacional de Escultura 2022 · Resistencia</div>
-      <div class="quote">“Transformarse sin dejar de ser uno mismo.”</div>
-      <a class="link-btn"
-         href="https://museoacieloabierto.org/es/catalogo?sculptors=96"
-         target="_blank"
-         rel="noopener noreferrer">
-        Ver la obra en Museo a Cielo Abierto ↗
-      </a>
+    <section class="art-section">
+      <article class="art-card">
+        <div class="sculpture crisalida" aria-hidden="true"></div>
+        <div class="art-text">
+          <div class="eyebrow">La obra que elegí para vos</div>
+          <h2>Crisálida</h2>
+          <div class="meta">Ebru Akinci · Bienal Internacional de Escultura 2022 · Resistencia</div>
+          <p>Fuerza y sensibilidad. Una transformación que nace desde adentro sin borrar lo que ya forma parte de uno.</p>
+          <a class="btn secondary" href="https://museoacieloabierto.org/es/catalogo?sculptors=96" target="_blank" rel="noopener noreferrer">Ver en Museo a Cielo Abierto ↗</a>
+        </div>
+      </article>
+
+      <article class="art-card right">
+        <div class="art-text">
+          <div class="eyebrow">La obra que elegí para nosotros</div>
+          <h2>Dualidad en movimiento</h2>
+          <div class="meta">José Carlos Cabello Millán · Bienal Internacional de Escultura 2026 · Resistencia</div>
+          <p>Dos direcciones, dos fuerzas y una misma composición. No se trata de eliminar las diferencias, sino de encontrar armonía dentro de ellas.</p>
+          <a class="btn secondary" href="https://bienaldelchaco.org/2026/bienal-de-escultura/esc-jose-c-cabello-millan/" target="_blank" rel="noopener noreferrer">Conocer la obra ↗</a>
+        </div>
+        <div class="sculpture dualidad" aria-hidden="true"></div>
+      </article>
     </section>
+
+    <section class="reveal">
+      <p>Dos obras distintas.</p>
+      <p>Una me hizo pensar en vos.</p>
+      <p>La otra, en todo eso que existe cuando vos y yo nos encontramos.</p>
+      <p class="final-line">Y todavía quiero seguir descubriendo qué podemos crear juntos.</p>
+    </section>
+
+    <section class="sources">
+      <a class="btn secondary" href="https://museoacieloabierto.org/es/catalogo?sculptors=96" target="_blank" rel="noopener noreferrer">Crisálida ↗</a>
+      <a class="btn secondary" href="https://bienaldelchaco.org/2026/bienal-de-escultura/esc-jose-c-cabello-millan/" target="_blank" rel="noopener noreferrer">Dualidad en movimiento ↗</a>
+    </section>
+
+    <footer>Para Carla, con amor.</footer>
   </main>
 
-  <footer>Hecho para vos.</footer>
-
   <script>
-    const abrir = document.getElementById('abrir');
-    abrir.addEventListener('click', () => {
-      document.body.classList.add('open');
+    const abrir = document.getElementById("abrir");
+    abrir.addEventListener("click", () => {
+      document.body.classList.add("open");
       setTimeout(() => {
-        document.querySelector('.letter-wrap').scrollIntoView({behavior:'smooth', block:'start'});
-      }, 120);
+        document.querySelector(".letter-wrap").scrollIntoView({behavior:"smooth", block:"start"});
+      }, 100);
     });
   </script>
 </body>
