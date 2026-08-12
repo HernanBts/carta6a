@@ -175,6 +175,44 @@
       transform:rotate(-2deg);
     }
 
+
+    .signature-wrap{
+      margin-top:42px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+
+    .signature-wrap .signature{
+      margin-top:0;
+    }
+    .smiley{
+      flex:0 0 auto;
+      width:150px;
+      height:120px;
+      transform:rotate(3deg);
+      opacity:.82;
+    }
+
+    .smiley svg{
+      width:100%;
+      height:100%;
+      overflow:visible;
+    }
+
+    .face-line{
+      fill:none;
+      stroke:rgba(43,37,33,.82);
+      stroke-width:5;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .face-line.smile{
+      stroke-width:5.5;
+    }
+
     .eyebrow{
       margin-bottom:10px;
       color:#c9bbb1;
@@ -351,6 +389,8 @@
       .modal-grid{grid-template-columns:1fr}
       .modal-dialog{padding:30px 18px 24px}
       .modal-heading{padding:0 22px}
+      .signature-wrap{gap:16px}
+      .smiley{width:112px;height:90px}
       .paper{padding:42px 28px 48px}
       .letter-wrap{padding-left:10px;padding-right:10px}
     }
@@ -412,7 +452,16 @@
 
           <p>Feliz aniversario, Osita.</p>
 
-          <div class="signature">Te amo. ❤️</div>
+          <div class="signature-wrap">
+            <div class="signature">Te amo, el Osito ❤️</div>
+            <div class="smiley" aria-hidden="true">
+              <svg viewBox="0 0 150 120" role="presentation">
+                <path class="face-line" d="M55 24 L55 48" />
+                <path class="face-line" d="M95 24 L95 48" />
+                <path class="face-line smile" d="M28 65 C45 105, 105 105, 122 65" />
+              </svg>
+            </div>
+          </div>
         </div>
       </article>
 
