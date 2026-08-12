@@ -378,6 +378,25 @@
       opacity:.45;
     }
 
+
+    .our-photo-wrap{
+      display:flex;
+      justify-content:center;
+      margin:38px auto 30px;
+    }
+
+    .our-photo{
+      width:clamp(190px,34vw,280px);
+      aspect-ratio:1/1;
+      object-fit:cover;
+      object-position:center;
+      border-radius:50%;
+      border:3px solid rgba(244,238,227,.88);
+      padding:5px;
+      background:rgba(255,255,255,.04);
+      box-shadow:0 18px 55px rgba(0,0,0,.34), 0 0 0 1px rgba(184,111,103,.35);
+    }
+
     @media(max-width:680px){
       .art-card,
       .art-card.right{
@@ -512,6 +531,10 @@
           <span class="music-dot" aria-hidden="true"></span>
           <span id="musicLabel">Pausar música</span>
         </button>
+
+        <div class="our-photo-wrap">
+          <img class="our-photo" src="foto.jpg" alt="Nosotros">
+        </div>
 
         <div class="modal-final">Y todavía quiero seguir descubriendo qué podemos crear juntos.</div>
       </div>
